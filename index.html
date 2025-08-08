@@ -8,15 +8,16 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background: linear-gradie(to bottom, #ff6600, #222);
+            background: linear-gradient(to bottom, #ff6600, #222);
             color: white;
         }
         header {
             background-color: #ff6600;
-            paddi
+            padding: 1rem;
             text-align: center;
             font-size: 2rem;
             font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         nav {
             display: flex;
@@ -28,6 +29,7 @@
             padding: 1rem;
             color: white;
             text-decoration: none;
+            transition: background 0.3s;
         }
         nav a:hover {
             background-color: #ff6600;
@@ -47,6 +49,9 @@
         img {
             max-width: 100%;
             border-radius: 10px;
+        }
+        iframe.audio-player {
+            display: none;
         }
         footer {
             text-align: center;
@@ -73,6 +78,7 @@
         <a href="#players">선수 정보</a>
         <a href="#schedule">경기 일정</a>
         <a href="#gallery">사진</a>
+        <a href="#song">응원가</a>
     </nav>
     <main>
         <section id="news" class="card">
@@ -93,11 +99,17 @@
         </section>
         <section id="gallery" class="card">
             <h2>📸 사진 갤러리</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Hanwha_Eagles_emblem.svg" alt="한화이글스 로고">
+            <img src="https://cdn.huffingtonpost.kr/news/photo/202005/97741_182062.png" alt="한화이글스 경기 장면">
+            <img src="https://dn.joongdo.co.kr/mnt/images/file/2018y/01m/29d/2018012901002689500123892.jpg" alt="한화이글스 선수들">
+        </section>
+        <section id="song" class="card">
+            <h2>🎵 한화이글스 응원가</h2>
+            <p>응원가가 자동 재생됩니다. (음소거 해제 시 청취 가능)</p>
+            <iframe class="audio-player" src="https://www.youtube.com/embed/mN4ZN_A8TPk?autoplay=1&loop=1&playlist=mN4ZN_A8TPk" allow="autoplay"></iframe>
         </section>
     </main>
     <footer>
-        &copy; 2025 한화이글스 팬사이트 | 비공식 팬페이지 | 데이터 출처: KBO
+        &copy; 2025 한화이글스 팬사이트 |
     </footer>
 </body>
 </html>
