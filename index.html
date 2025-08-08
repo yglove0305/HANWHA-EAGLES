@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANWHA EAGLES</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradie(to bottom, #ff6600, #222);
+            color: white;
+        }
+        header {
+            background-color: #ff6600;
+            paddi
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ff6600;
+        }
+        main {
+            padding: 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin: 1rem 0;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #111;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                padding: 0.5rem;
+                text-align: center;
+                border-top: 1px solid #444;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>HANWHA EAGLES</header>
+    <nav>
+        <a href="#news">팀 소식</a>
+        <a href="#players">선수 정보</a>
+        <a href="#schedule">경기 일정</a>
+        <a href="#gallery">사진</a>
+    </nav>
+    <main>
+        <section id="news" class="card">
+            <h2>📢 최신 팀 소식</h2>
+            <p>2025년 시즌 한화이글스는 전반기 3위로 마감하며 가을야구 진출에 청신호를 켰습니다. 최근 5연승으로 상승세를 이어가고 있습니다.</p>
+        </section>
+        <section id="players" class="card">
+            <h2>🦅 주요 선수</h2>
+            <ul>
+                <li>노시환 – 3루수, 팀 타선의 중심</li>
+                <li>문동주 – 에이스 투수, 평균자책점 2.85</li>
+                <li>채은성 – 외야수, 시즌 홈런 18개</li>
+            </ul>
+        </section>
+        <section id="schedule" class="card">
+            <h2>📅 경기 일정</h2>
+            <p>다음 경기: 2025년 8월 10일 vs LG 트윈스 (대전 한화생명 이글스파크) 오후 6시 30분</p>
+        </section>
+        <section id="gallery" class="card">
+            <h2>📸 사진 갤러리</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Hanwha_Eagles_emblem.svg" alt="한화이글스 로고">
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 한화이글스 팬사이트 | 비공식 팬페이지 | 데이터 출처: KBO
+    </footer>
+</body>
+</html>
