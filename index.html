@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HANWHA EAGLES</title>
+    <title>HANWHA EAGLES 팬사이트</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             background: linear-gradient(to bottom, #ff6600, #111);
             color: white;
+            overflow-x: hidden;
         }
         header {
             background-color: #ff6600;
@@ -25,6 +27,9 @@
             flex-wrap: wrap;
             justify-content: center;
             background-color: #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             padding: 1rem 1.5rem;
@@ -58,6 +63,10 @@
             max-width: 100%;
             border-radius: 10px;
             margin: 0.5rem 0;
+            transition: transform 0.3s;
+        }
+        img:hover {
+            transform: scale(1.05);
         }
         .gallery-grid {
             display: grid;
@@ -80,6 +89,49 @@
             background-color: #ff6600;
             color: #111;
         }
+        .live-score {
+            background: #111;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        .slideshow {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .fan-vote button {
+            background-color: #ff6600;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            color: #111;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .fan-vote button:hover {
+            background-color: #ffa64d;
+        }
+        .chat-box {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
         footer {
             text-align: center;
             padding: 1rem;
@@ -87,32 +139,30 @@
             font-size: 0.9rem;
         }
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                padding: 0.7rem;
-                text-align: center;
-                border-top: 1px solid #444;
-            }
+            nav {flex-direction: column;}
+            nav a {padding: 0.7rem; text-align: center; border-top: 1px solid #444;}
         }
     </style>
 </head>
 <body>
-    <header>HANWHA EAGLES</header>
+    <header>HANWHA EAGLES 팬사이트</header>
     <nav>
         <a href="#news">팀 소식</a>
         <a href="#players">선수 정보</a>
         <a href="#stats">선수 기록</a>
         <a href="#schedule">경기 일정</a>
         <a href="#gallery">사진</a>
+        <a href="#vote">팬 투표</a>
+        <a href="#chat">실시간 채팅</a>
         <a href="#song">응원가</a>
     </nav>
     <main>
         <section id="news" class="card">
             <h2>📢 최신 팀 소식</h2>
             <p>2025 시즌 한화이글스는 전반기 3위를 기록하며 팬들의 기대를 모으고 있습니다. 최근 5연승을 달리며 분위기가 고조되고 있습니다.</p>
+            <div class="live-score">현재 경기: 한화 5 - 3 두산 (8회말)</div>
         </section>
+
         <section id="players" class="card">
             <h2>🦅 주요 선수</h2>
             <ul>
@@ -121,6 +171,7 @@
                 <li>채은성 – 외야수, 시즌 홈런 18개, 타점 65점</li>
             </ul>
         </section>
+
         <section id="stats" class="card player-stats">
             <h2>📊 선수 기록</h2>
             <table>
@@ -130,26 +181,68 @@
                 <tr><td>채은성</td><td>.295</td><td>18</td><td>65</td></tr>
             </table>
         </section>
+
         <section id="schedule" class="card">
             <h2>📅 경기 일정</h2>
             <p>다음 경기: 2025년 8월 10일 vs LG 트윈스 (대전 한화생명 이글스파크) 오후 6시 30분</p>
         </section>
+
         <section id="gallery" class="card">
             <h2>📸 사진 갤러리</h2>
-            <div class="gallery-grid">
-                <img src="https://cdn.huffingtonpost.kr/news/photo/202005/97741_182062.png" alt="한화이글스 경기 장면">
-                <img src="https://dn.joongdo.co.kr/mnt/images/file/2018y/01m/29d/2018012901002689500123892.jpg" alt="한화이글스 선수들">
-                <img src="https://imgnews.pstatic.net/image/076/2023/04/02/2023040201000120400003981_20230402175503941.jpg" alt="한화이글스 홈런 세리머니">
+            <div class="slideshow">
+                <div class="slides">
+                    <img src="https://cdn.huffingtonpost.kr/news/photo/202005/97741_182062.png" alt="한화이글스 경기 장면">
+                    <img src="https://dn.joongdo.co.kr/mnt/images/file/2018y/01m/29d/2018012901002689500123892.jpg" alt="한화이글스 선수들">
+                    <img src="https://imgnews.pstatic.net/image/076/2023/04/02/2023040201000120400003981_20230402175503941.jpg" alt="한화이글스 홈런 세리머니">
+                </div>
             </div>
         </section>
+
+        <section id="vote" class="card fan-vote">
+            <h2>🗳️ 오늘의 MVP 투표</h2>
+            <button onclick="alert('노시환 선수에게 투표하셨습니다!')">노시환</button>
+            <button onclick="alert('문동주 선수에게 투표하셨습니다!')">문동주</button>
+            <button onclick="alert('채은성 선수에게 투표하셨습니다!')">채은성</button>
+        </section>
+
+        <section id="chat" class="card">
+            <h2>💬 실시간 채팅</h2>
+            <div class="chat-box" id="chatBox"></div>
+            <input type="text" id="chatInput" placeholder="메시지를 입력하세요...">
+            <button onclick="sendMessage()">전송</button>
+        </section>
+
         <section id="song" class="card">
             <h2>🎵 한화이글스 응원가</h2>
             <p>응원가가 자동 재생됩니다. (음소거 해제 시 청취 가능)</p>
             <iframe class="audio-player" src="https://www.youtube.com/embed/mN4ZN_A8TPk?autoplay=1&loop=1&playlist=mN4ZN_A8TPk" allow="autoplay"></iframe>
         </section>
     </main>
+
     <footer>
-        문제가 있습니까? Github.com 또는 vercel.com으로 문의 하십시오.
+        &copy; 2025 한화이글스 팬사이트 | 비공식 팬 제작
     </footer>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const slideImages = document.querySelectorAll('.slides img');
+        setInterval(() => {
+            slideIndex = (slideIndex + 1) % slideImages.length;
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }, 3000);
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            if (input.value.trim() !== '') {
+                const chatBox = document.getElementById('chatBox');
+                const msg = document.createElement('div');
+                msg.textContent = input.value;
+                chatBox.appendChild(msg);
+                input.value = '';
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+    </script>
 </body>
 </html>
